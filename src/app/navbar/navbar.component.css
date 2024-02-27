@@ -1,0 +1,35 @@
+/* styles.css (ou votre fichier de styles Angular) */
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+.header {
+  background-color: #333; /* Couleur de fond grise */
+  padding: 15px;
+  text-align: center;
+}
+
+.logo {
+  float: left;
+  margin-right: 20px;
+}
+
+.navbar {
+  display: inline-block;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 14px 16px;
+  display: inline-block;
+}
+
+.navbar a:hover {
+  background-color: #ddd; /* Couleur de fond au survol */
+  color: black;
+}
+
+/* Ajoutez d'autres styles au besoin */

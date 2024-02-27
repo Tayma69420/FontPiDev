@@ -1,0 +1,26 @@
+<div class="card">
+  <div class="card-body">
+    <table class="table mb-0 table-striped">
+      <thead>
+      <tr>
+
+        <th scope="col">Titre</th>
+        <th scope="col">Description</th>
+        <th scope="col">Date de Reclamation</th>
+        <th scope="col">Status</th>
+        <th scope="col">User</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let i of ToShow">
+        <td>{{i.titre}}</td>
+        <td>{{i.desciprtion}}</td>
+        <td>{{i.dateDeReclamation}}</td>
+        <td>{{i.status}}</td>
+        <td>{{i.user}}</td>
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
