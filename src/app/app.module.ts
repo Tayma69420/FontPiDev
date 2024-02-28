@@ -11,6 +11,8 @@ import {FormsModule} from "@angular/forms";
 import { ReclamationComponent } from './reclamation/reclamation.component';
 import { SignupComponent } from './signup/signup.component';
 import { AdminComponent } from './admin/admin.component';
+import { EtudiantComponent } from './etudiant/etudiant.component';
+import { ExposantComponent } from './exposant/exposant.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { AdminComponent } from './admin/admin.component';
     HomeComponent,
     ReclamationComponent,
     SignupComponent,
-    AdminComponent
+    AdminComponent,
+    EtudiantComponent,
+    ExposantComponent
   ],
   imports: [
     BrowserModule,

@@ -21,4 +21,5 @@ export class AppComponent implements OnInit{
       this.username = user.username;
     }
   };
+
 }

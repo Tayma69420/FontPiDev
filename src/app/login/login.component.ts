@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from "../services/user.service";
 import { StorageService } from "../services/storage.service";
 import { Router } from "@angular/router";
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -28,20 +27,20 @@ export class LoginComponent implements OnInit {
     if (this.storageService.isLoggedIn()) {
       this.isLoggedIn = true;
       this.roles = this.storageService.getUser().roles;
-
+      this.redirectBasedOnRole();
     }
   }
+
   showForgotPasswordForm(): void {
     this.showForgotPassword = true;
   }
+
   resetPassword(email: string): void {
     this.userService.resetPassword(email).subscribe({
       next: data => {
-        // Handle successful reset password response
         console.log('Password reset email sent successfully');
       },
       error: err => {
-        // Handle error
         console.error('Error sending reset password email', err);
       }
     });
@@ -57,7 +56,7 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.storageService.getUser().roles;
-        this.reloadPage();
+        this.redirectBasedOnRole();
       },
       error: err => {
         this.errorMessage = err.error.message;
@@ -74,5 +73,15 @@ export class LoginComponent implements OnInit {
     this.test = !this.test;
   }
 
-
+  redirectBasedOnRole(): void {
+    if (this.roles.includes('ROLE_ETUDIANT')) {
+      this.router.navigate(['etudiant']);
+    } else if (this.roles.includes('ROLE_EXPOSANT')) {
+      this.router.navigate(['exposant']);
+    } else if (this.roles.includes('ROLE_ADMIN')) {
+      this.router.navigate(['admin']);
+    } else {
+      this.router.navigate(['']);
+    }
+  }
 }

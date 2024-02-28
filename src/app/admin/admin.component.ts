@@ -18,7 +18,7 @@ export class AdminComponent implements OnInit {
   loadUsers(): void {
     this.userService.getAllUsersInfo().subscribe(
       (data: any[]) => {
-        // Add a property to each user object to control visibility
+
         this.users = data.map(user => ({ ...user, isEditing: false }));
       },
       error => {
