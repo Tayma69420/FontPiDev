@@ -21,5 +21,4 @@ export class ReclamationComponent implements OnInit{
       }
     );
   }
-
 }
