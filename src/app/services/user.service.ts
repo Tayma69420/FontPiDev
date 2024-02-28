@@ -41,7 +41,16 @@ export class UserService {
     );
   }
 
+resetPassword(email :string):Observable<any>{
+    return this.http.post(
+      AUTH_API + '/user/resetPassword',
+      {
+        email
+      },
+      httpOptions
+    );
 
+}
   handleLoginResponse(response: any): void {
     if (response.token) {
 
@@ -58,4 +67,24 @@ export class UserService {
 
     this.storageService.clean();
   }
+  getAllUsersInfo(): Observable<any> {
+    return this.http.get(
+      AUTH_API + 'allUsersInfo',
+      httpOptions
+    );
+  }
+  modifyUserDetails(userId: number, userInfo: any): Observable<any> {
+    return this.http.put(
+      AUTH_API + `modifyUserDetails/${userId}`,
+      userInfo,
+      httpOptions
+    );
+  }
+  deleteUser(userId: number): Observable<any> {
+    return this.http.delete(
+      AUTH_API + `deleteUser/${userId}`,
+      httpOptions
+    );
+  }
+
 }

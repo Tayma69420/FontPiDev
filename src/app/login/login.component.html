@@ -50,7 +50,7 @@
                         <label class="form-check-label" for="flexSwitchCheckChecked">Remember Me</label>
                       </div>
                     </div>
-                    <div class="col-6 text-end">	<a href="authentication-forgot-password.html">Forgot Password ?</a>
+                    <a href="#" (click)="showForgotPasswordForm()">Forgot Password ?</a>
                     </div>
                     <div class="col-12">
                       <div class="d-grid">
@@ -59,6 +59,28 @@
                     </div>
                     <div class="col-12">
                       <p class="mb-0">Don't have an account yet ? <a (click)="onClick()">Sign up here</a></p>
+                    </div>
+                </form>
+                <form class="form-body" *ngIf="showForgotPassword" name="forgotPasswordForm"
+                      (ngSubmit)="resetPassword(forgotPasswordEmail)">
+                  <div class="row g-3">
+                    <div class="col-12">
+                      <label class="form-label">Email Address</label>
+                      <div class="ms-auto position-relative">
+                        <div class="position-absolute top-50 translate-middle-y search-icon px-3"><i
+                          class="bi bi-envelope-fill"></i></div>
+                        <input type="email" class="form-control radius-30 ps-5" name="forgotPasswordEmail"
+                               [(ngModel)]="forgotPasswordEmail" required #forgotEmail="ngModel"
+                               [ngClass]="{ 'is-invalid': forgotEmail.errors }">
+                      </div>
+                      <div *ngIf="forgotEmail.errors" class="invalid-feedback">
+                        Email is required!
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="d-grid">
+                        <button type="submit" class="btn btn-primary radius-30">Reset Password</button>
+                      </div>
                     </div>
                   </div>
                 </form>
@@ -69,10 +91,9 @@
       </div>
     </div>
   </main>
-
-  <!--end page main-->
-
+  <!-- end page main -->
 </div>
+  <!-- end wrapper -->
 </ng-container>
 <ng-template #elseBlock>
   signup

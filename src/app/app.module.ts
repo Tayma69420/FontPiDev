@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import {FormsModule} from "@angular/forms";
 import { ReclamationComponent } from './reclamation/reclamation.component';
 import { SignupComponent } from './signup/signup.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SignupComponent } from './signup/signup.component';
     NavbarComponent,
     HomeComponent,
     ReclamationComponent,
-    SignupComponent
+    SignupComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
