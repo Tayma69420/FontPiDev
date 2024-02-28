@@ -7,9 +7,11 @@ import { OffreComponent } from './offre/offre.component';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ReclamationComponent } from './reclamation/reclamation.component';
 import { SignupComponent } from './signup/signup.component';
+import { AddoComponent } from './offre/addo/addo.component';
+import { ModifComponent } from './offre/modif/modif.component';
 
 @NgModule({
   declarations: [
@@ -19,14 +21,17 @@ import { SignupComponent } from './signup/signup.component';
     NavbarComponent,
     HomeComponent,
     ReclamationComponent,
-    SignupComponent
+    SignupComponent,
+    AddoComponent,
+    ModifComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    FormsModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        FormsModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

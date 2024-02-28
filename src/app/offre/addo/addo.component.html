@@ -1,0 +1,38 @@
+<main class="page-content">
+  <!--breadcrumb-->
+  <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+    <h1 class="card-body text-center"> Ajouter offre</h1>
+  </div>
+
+  <div class="row">
+    <div class="col-xl-6 mx-auto">
+
+      <div class="card">
+        <div class="card-body">
+          <div class="border p-3 rounded">
+            <h6 class="mb-0 text-uppercase" >Formulaire d'ajout</h6>
+            <hr/>
+            <form class="row g-3" *ngIf="!submitted">
+              <div class="col-12">
+                <label class="form-label">Intitulé</label>
+                <input id="intiule"  name="intiule" type="text" class="form-control" required minlength="10" [(ngModel)]="offre.intitule">
+                </div>
+
+              <div class="col-12">
+                <label class="form-label">Description</label>
+                <input class="form-control" id="description"  name="description" type="text" [(ngModel)]="offre.description">
+              </div>
+              <div class="col-12">
+                <label class="form-label">Nombre de places</label>
+                <input type="number" id="nbPlaces"  name="nbPlaces" class="form-control" [(ngModel)]="offre.nbPlaces">
+              </div>
+              <div class="card-body text-center">
+                <button (click)="saveOffre()" class="btn btn-outline-success px-5 rounded-0">Ajouter</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

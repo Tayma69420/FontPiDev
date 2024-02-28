@@ -23,4 +23,10 @@ export class OffreComponent implements OnInit{
   ngOnInit(): void {
     this.loadOffres();
   }
+    goToAdd(){
+      this.router.navigate(['addoffre']);
+    }
+  edit(idOffre: any) {
+    this.router.navigate(['modifoff/' + idOffre]);
+  }
 }

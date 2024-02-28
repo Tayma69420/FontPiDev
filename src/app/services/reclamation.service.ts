@@ -10,6 +10,6 @@ export class ReclamationService {
 
   constructor(private http: HttpClient) { }
   getAll(): Observable<Reclamation[]> {
-    return this.http.get<Reclamation[]>("localhost:8075/api/auth/getAllr");
+    return this.http.get<Reclamation[]>("http://localhost:8075/api/auth/getAllr");
   }
 }

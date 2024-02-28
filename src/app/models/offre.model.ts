@@ -4,4 +4,5 @@ export class Offre {
   description?:String;
   dateDeCreation?:Date;
   nbPlaces?:number;
+  user?:any;
 }
