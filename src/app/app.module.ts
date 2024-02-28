@@ -10,6 +10,9 @@ import { HomeComponent } from './home/home.component';
 import {FormsModule} from "@angular/forms";
 import { ReclamationComponent } from './reclamation/reclamation.component';
 import { SignupComponent } from './signup/signup.component';
+import {httpInterceptorProviders} from "./_helpers/http.interceptor";
+import {AjouterComponent} from "./reclamation/ajouter/ajouter.component";
+import { ModifierComponent } from './reclamation/modifier/modifier.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,9 @@ import { SignupComponent } from './signup/signup.component';
     NavbarComponent,
     HomeComponent,
     ReclamationComponent,
-    SignupComponent
+    SignupComponent,
+    AjouterComponent,
+    ModifierComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +32,7 @@ import { SignupComponent } from './signup/signup.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

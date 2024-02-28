@@ -1,25 +1,40 @@
-<div class="card">
-  <div class="card-body">
-    <table class="table mb-0 table-striped">
-      <thead>
-      <tr>
-        <th scope="col">Titre</th>
-        <th scope="col">Description</th>
-        <th scope="col">Date de Reclamation</th>
-        <th scope="col">Status</th>
-        <th scope="col">User</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let i of ToShow">
-        <td>{{i.titre}}</td>
-        <td>{{i.desciprtion}}</td>
-        <td>{{i.dateDeReclamation}}</td>
-        <td>{{i.status}}</td>
-        <td>{{i.user}}</td>
-      </tr>
-
-      </tbody>
-    </table>
+<main class="page-content container-fluid">
+  <div class="ms-lg-3 mt-4">
+    <div class="d-flex justify-content-end">
+      <button (click)="goToAdd()" type="button" class="btn btn-primary btn-black">Ajouter Reclamation</button>
+    </div>
   </div>
-</div>
+
+  <div class="card mt-4">
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Titre</th>
+          <th scope="col">Description</th>
+          <th scope="col">Date de Reclamation</th>
+          <th scope="col">Status</th>
+          <th scope="col">Image</th>
+          <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let i of ToShow; let idx = index">
+          <td>{{ 'Reclamation ' + (idx + 1) }}</td>
+          <td>{{ i.titre }}</td>
+          <td>{{ i.description }}</td>
+          <td>{{ i.dateDeReclamation }}</td>
+          <td [ngClass]="{ 'status-true-cell': i.status, 'status-false': !i.status }">{{ i.status }}</td>
+          <td>{{ i.image }}</td>
+          <td>
+            <button (click)="delete(i.idReclamation)" class="btn btn-danger btn-sm me-1">Delete</button>
+
+            <button  (click)="modifier(i.idReclamation)" class="btn btn-secondary btn-sm">Modifier</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>

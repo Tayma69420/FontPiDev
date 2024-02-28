@@ -1,0 +1,38 @@
+/* Add this to your CSS file */
+.status-false {
+  background-color: #dc3545; /* Red background color */
+  color: #fff; /* White text color */
+  font-weight: bold; /* Make text bold for better visibility */
+}
+/* Add this style in your CSS */
+.status-true {
+  color: #28a745; /* Green color for true status */
+}
+
+/* ... existing styles ... */
+/* Add this style in your CSS */
+.status-true-row {
+  background-color: #28a745; /* Green background color for true status */
+  color: #fff; /* White text color for better visibility */
+}
+
+/* ... existing styles ... */
+/* Add this style in your CSS */
+.status-true-cell {
+  background-color: #28a745; /* Green background color for true status */
+  color: #fff; /* White text color for better visibility */
+}
+
+/* ... existing styles ... */
+/* Add this style in your CSS */
+.btn-black {
+  background-color: #000; /* Black background color */
+  color: #fff; /* White text color for better visibility */
+}
+
+/* ... existing styles ... */
+/* Add this style in your CSS */
+.btn-black {
+  background-color: #000; /* Black background color */
+  color: #fff; /* White text color for better visibility */
+}
