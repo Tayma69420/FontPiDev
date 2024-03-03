@@ -12,6 +12,13 @@ import { ReclamationComponent } from './reclamation/reclamation.component';
 import { SignupComponent } from './signup/signup.component';
 import { AddoComponent } from './offre/addo/addo.component';
 import { ModifComponent } from './offre/modif/modif.component';
+/*import { EtudiantComponent } from './etudiant/etudiant.component';
+import { AdminComponent } from './admin/admin.component';
+import { ExposantComponent } from './exposant/exposant.component';*/
+import { AccessDeniedComponent } from './access-denied/access-denied.component';
+/*import {ExposantModule} from "./exposant/exposant.module";
+import {EtudiantModule} from "./etudiant/etudiant.module";
+import {AdminModule} from "./admin/admin.module";*/
 
 @NgModule({
   declarations: [
@@ -23,14 +30,18 @@ import { ModifComponent } from './offre/modif/modif.component';
     ReclamationComponent,
     SignupComponent,
     AddoComponent,
-    ModifComponent
+    ModifComponent,
+    AccessDeniedComponent
   ],
     imports: [
         BrowserModule,
         HttpClientModule,
         AppRoutingModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+      /*AdminModule,
+      EtudiantModule,
+      ExposantModule,*/
     ],
   providers: [],
   bootstrap: [AppComponent]

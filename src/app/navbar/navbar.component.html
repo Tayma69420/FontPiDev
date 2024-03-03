@@ -1,4 +1,4 @@
-<div class="wrapper">
+<!--<div class="wrapper">
 <div class="header">
   <div class="logo">
 
@@ -6,10 +6,69 @@
   </div>
 
   <div class="navbar">
-    <a routerLink="reclamations">Réclamations</a>
-    <a routerLink="offres">Offres</a>
+
+    <a >Offres</a>
   </div>
 </div>
 
+
+</div>-->
+
+  <!--start top header-->
+  <header class="top-header" >
+    <nav class="navbar navbar-expand-lg gap-3">
+      <div class="mobile-toggle-icon fs-3">
+        <i class="bi bi-list"></i>
+      </div>
+
+      <form class="searchbar top-navbar-left d-flex align-items-center" style="margin-top: 10px">
+        <div class="position-absolute top-50 translate-middle-y search-icon ms-3">
+          <i class="bi bi-search"></i>
+        </div>
+        <input class="form-control" type="text" placeholder="Type here to search">
+        <div class="position-absolute top-50 translate-middle-y search-close-icon">
+          <i class="bi bi-x-lg"></i>
+        </div>
+      </form>
+
+
+    </nav>
+  </header>
+
+  <aside class="sidebar-wrapper" data-simplebar="true">
+    <div class="sidebar-header">
+      <div>
+        <img src="assets/logo.png" class="logo-icon" alt="logo icon">
+      </div>
+      <div>
+        <h4 class="logo-text">EspritForum</h4>
+      </div>
+
+    </div>
+
+    <ul class="metismenu" id="menu">
+      <li>
+        <a href="javascript:;" >
+          <div class="parent-icon"><i class="bi bi-house-fill"></i>
+          </div>
+          <div class="menu-title">Home</div>
+        </a>
+
+      </li>
+      <li class="menu-label">Sections</li>
+      <li>
+
+        <a routerLink="offres"  >
+          <div class="parent-icon"><i class="bi bi-droplet-fill"></i>
+          </div>
+          <div class="menu-title">Widgets</div>
+        </a>
+
+      </li>
+    </ul>
+
+
+  </aside>
 <router-outlet></router-outlet>
-</div>
+
+

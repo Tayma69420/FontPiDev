@@ -1,10 +1,14 @@
-<main class="page-content">
+<main class="page-content" style="margin-top: -600px">
+  <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+    <button (click)="goToAdd()" type="button" class="btn btn-outline-dark px-5 rounded-0">Ajouter Offre</button>
+  </div>
+
   <div class="ms-lg-3">
     <div class="btn-group">
-      <button (click)="goToAdd()" type="button" style="margin-left: 1000px" class="btn btn-primary">Ajouter Offre</button>
+
 
     </div>
-  </div><br>
+  </div>
   <div class="card bg-transparent shadow-none">
     <div class="card-body">
 
@@ -13,14 +17,14 @@
       <div class="row row-cols-1 row-cols-lg-3 justify-content-center g-lg-5">
         <div class="col" *ngFor="let i of ToShow">
           <div class="card">
-            <img src="https://via.placeholder.com/800X500" class="card-img-top" alt="...">
+            <img [src]="i.image" height="100px" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{i.intitule}}</h5>
               <p class="card-text">Description : {{i.description}}</p>
               <p class="card-text">Nombre de places : {{i.nbPlaces}}</p>
-              <p class="card-text"> {{i.dateDeCreation}}</p>
-              <a href="#" class="btn btn-primary">Postuler</a>
-              <a (click)="edit(i.idOffre)" class="btn btn-primary">Modifier</a>
+              <p class="card-text"> {{i.dateDeCreation | date:'yyyy-MM-dd'}}</p>
+              <a href="#" class="btn btn-outline-dark" style="margin-right: 5px">Postuler</a>
+              <a (click)="edit(i.idOffre)" class="btn btn-outline-secondary">Modifier</a>
             </div>
           </div>
         </div>
