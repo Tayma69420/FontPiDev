@@ -23,7 +23,7 @@
 
               <div class="col-12">
                 <label for="image" class="form-label">Image</label>
-                <input id="image" name="image" type="text" class="form-control" [(ngModel)]="reclamation.image">
+                <input id="image" name="image" type="file" class="form-control" (change)="onFileChange($event)">
               </div>
 
               <div class="col-12 text-center">

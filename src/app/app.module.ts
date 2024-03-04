@@ -13,6 +13,10 @@ import { SignupComponent } from './signup/signup.component';
 import {httpInterceptorProviders} from "./_helpers/http.interceptor";
 import {AjouterComponent} from "./reclamation/ajouter/ajouter.component";
 import { ModifierComponent } from './reclamation/modifier/modifier.component';
+import { MesreclamationComponent } from './reclamation/mesreclamation/mesreclamation.component';
+import { NgChartsModule } from 'ng2-charts';
+
+
 
 @NgModule({
   declarations: [
@@ -24,13 +28,15 @@ import { ModifierComponent } from './reclamation/modifier/modifier.component';
     ReclamationComponent,
     SignupComponent,
     AjouterComponent,
-    ModifierComponent
+    ModifierComponent,
+    MesreclamationComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgChartsModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

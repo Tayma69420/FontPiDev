@@ -5,13 +5,15 @@ import {LoginComponent} from "./login/login.component";
 import {ReclamationComponent} from "./reclamation/reclamation.component";
 import {AjouterComponent} from "./reclamation/ajouter/ajouter.component";
 import {ModifierComponent} from "./reclamation/modifier/modifier.component";
+import {MesreclamationComponent} from "./reclamation/mesreclamation/mesreclamation.component";
 
 const routes: Routes = [
   { path:'', component: HomeComponent },
   { path:'login', component: LoginComponent },
   { path:'reclamations', component: ReclamationComponent },
   { path:'ajouterrec', component: AjouterComponent},
-  { path:'modifRec/:idReclamation', component: ModifierComponent}
+  { path:'modifRec/:idReclamation', component: ModifierComponent},
+  { path:'mesreclamation', component: MesreclamationComponent}
 ];
 
 
