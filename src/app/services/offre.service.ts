@@ -11,9 +11,9 @@ export class OffreService {
 
   constructor(private http: HttpClient) { }
   getAll(): Observable<Offre[]> {
-    return this.http.get<Offre[]>("http://localhost:8075/getAllO");
+    return this.http.get<Offre[]>("http://localhost:8075/api/auth/getAllO");
   }
   addOffre(data:any):Observable<any>{
-    return this.http.post("http://localhost:8075/addOffre",data);
+    return this.http.post("http://localhost:8075/api/auth/addOffre",data);
   }
 }

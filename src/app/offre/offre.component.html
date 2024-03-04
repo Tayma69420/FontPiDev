@@ -1,19 +1,35 @@
-<div class="card">
-  <div class="card-body">
-    <div class="product-grid">
-      <div class="row row-cols-1 row-cols-lg-4 row-cols-xl-4 row-cols-xxl-5 g-3"></div>
-        <div class="col">
-          <p *ngFor="let i of ToShow">
-            {{i.idOffre}}
-            {{i.intitule}}
-            {{i.description}}
-            {{i.dateDeCreation}}
-            {{i.nbPlaces}}
-          </p>
+<main class="page-content">
+  <div class="ms-lg-3">
+    <div class="btn-group">
+      <button (click)="goToAdd()" type="button" style="margin-left: 1000px" class="btn btn-primary">Ajouter Offre</button>
+
+    </div>
+  </div><br>
+  <div class="card bg-transparent shadow-none">
+    <div class="card-body">
+
+      <h6 class="mb-0 text-uppercase">Liste des Offres</h6>
+
+      <div class="row row-cols-1 row-cols-lg-3 justify-content-center g-lg-5">
+        <div class="col" *ngFor="let i of ToShow">
+          <div class="card">
+            <img src="https://via.placeholder.com/800X500" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{i.intitule}}</h5>
+              <p class="card-text">Description : {{i.description}}</p>
+              <p class="card-text">Nombre de places : {{i.nbPlaces}}</p>
+              <p class="card-text"> {{i.dateDeCreation}}</p>
+              <a href="#" class="btn btn-primary">Postuler</a>
+            </div>
+          </div>
         </div>
+
+
+
+      </div>
     </div>
   </div>
-</div>
+</main>
 
 
 

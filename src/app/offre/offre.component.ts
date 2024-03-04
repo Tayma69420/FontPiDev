@@ -20,6 +20,9 @@ export class OffreComponent implements OnInit{
       }
     );
   }
+  goToAdd(){
+    this.router.navigate(['addoffre']);
+  }
   ngOnInit(): void {
     this.loadOffres();
   }

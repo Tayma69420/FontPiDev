@@ -10,6 +10,10 @@ import { HomeComponent } from './home/home.component';
 import {FormsModule} from "@angular/forms";
 import { ReclamationComponent } from './reclamation/reclamation.component';
 import { SignupComponent } from './signup/signup.component';
+import { CandidatureComponent } from './candidature/candidature/candidature.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {ModalModule} from "ngx-bootstrap/modal";
+import { DetailsComponent } from './candidature/details/details.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +23,21 @@ import { SignupComponent } from './signup/signup.component';
     NavbarComponent,
     HomeComponent,
     ReclamationComponent,
-    SignupComponent
+    SignupComponent,
+    CandidatureComponent,
+    DetailsComponent,
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ModalModule.forRoot(),
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

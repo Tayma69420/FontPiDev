@@ -1,0 +1,71 @@
+<div class="card">
+  <div class="card-body">
+    <table class="table mb-0 table-striped">
+      <thead>
+      <tr>
+        <th scope="col">Formation</th>
+        <th scope="col">Compétences</th>
+        <th scope="col">Expériences</th>
+        <th scope="col">Langues</th>
+        <th scope="col">Status</th>
+        <th scope="col">Date de candidature</th>
+        <th scope="col">Offre</th>
+
+        <th scope="col">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let i of ToShow">
+        <td>{{i.formation}}</td>
+        <td>{{i.competence}}</td>
+        <td>{{i.experience}}</td>
+        <td>{{i.langues}}</td>
+        <td>{{i.status}}</td>
+        <td>{{i.dateDeCandidature}}</td>
+        <td>{{i.offre.intitule}}</td>
+        <td>
+
+          <i class="fas fa-edit" style="margin-right: 8px;" (click)="openModal(modalTemplate,i)"></i>
+          <i class="fas fa-trash-alt" style="margin-right: 8px; margin-left: 8px;" (click)="delete(i.idCandidature)"></i>
+
+          <i class="fas fa-eye" style="margin-left: 8px;" (click)="navigateToDetails(i.idCandidature)"></i>
+
+
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<ng-template #modalTemplate>
+  <div class="modal-header">
+    <h4 class="modal-title">Modifier la candidature</h4>
+    <button type="button" class="close" (click)="closeModal()">&times;</button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="formation">Formation:</label>
+        <input type="text" id="formation" name="formation" class="form-control" [(ngModel)]="selectedCandidature.formation" />
+      </div>
+
+      <div class="form-group">
+        <label for="competence">Compétences:</label>
+        <input type="text" id="competence" name="competence" class="form-control" [(ngModel)]="selectedCandidature.competence" />
+      </div>
+
+      <div class="form-group">
+        <label for="experience">Expériences:</label>
+        <input type="text" id="experience" name="experience" class="form-control" [(ngModel)]="selectedCandidature.experience" />
+      </div>
+      <div class="form-group">
+        <label for="langue">Langues:</label>
+        <input type="text" id="langue" name="langue" class="form-control" [(ngModel)]="selectedCandidature.langues" />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeModal()">Fermer</button>
+        <button type="button" class="btn btn-primary" (click)="updateCandidature()">Enregistrer</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
