@@ -13,13 +13,19 @@ export class OffreService {
   getAll(): Observable<Offre[]> {
     return this.http.get<Offre[]>("http://localhost:8075/api/v1/auth/getAllO");
   }
-  addOffre(idUser:any,data:any):Observable<any>{
-    return this.http.post("http://localhost:8075/api/v1/auth/addOffreAndAssignOffreToUser/" +idUser,data);
+  getMyAll(id:any): Observable<Offre[]> {
+    return this.http.get<Offre[]>("http://localhost:8075/api/v1/auth/getMyOffres/" + id);
+  }
+  addOffre(idUser:any,data:any,idSession:any):Observable<any>{
+    return this.http.post("http://localhost:8075/api/v1/auth/addOffreAndAssignToUserAndToSession/" +idUser + "/" + idSession,data);
   }
   modifOffre(data:any):Observable<any>{
     return this.http.put("http://localhost:8075/api/v1/auth/modifierOffre",data);
   }
   getOffre(idOffre:any): Observable<Offre[]> {
-    return this.http.get<Offre[]>("http://localhost:8075/api/auth/getOffre/" + idOffre);
+    return this.http.get<Offre[]>("http://localhost:8075/api/v1/auth/getOffre/" + idOffre);
+  }
+  deleteOffre(idOffre:any):Observable<any>{
+    return this.http.delete('http://localhost:8075/api/v1/auth/supprimerOffre/' + idOffre)
   }
 }

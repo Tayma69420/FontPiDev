@@ -1,39 +1,50 @@
-import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Offre} from "../../models/offre.model";
-import {StorageService} from "../../services/storage.service";
-import {OffreService} from "../../services/offre.service";
-import { NgForm } from '@angular/forms';
-import {Router} from "@angular/router";
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Offre } from '../../models/offre.model';
+import { StorageService } from '../../services/storage.service';
+import { OffreService } from '../../services/offre.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addo',
   templateUrl: './addo.component.html',
-  styleUrls: ['./addo.component.css']
+  styleUrls: ['./addo.component.css'],
 })
-export class AddoComponent{
-
-  constructor(private router:Router,private offerService:OffreService,private tokenStorageService:StorageService) { }
-  offre: Offre ={
-    description:'',
-    intitule:'',
-    dateDeCreation:new Date(),
-    nbPlaces:undefined,
-
-  }
+export class AddoComponent {
+  offreForm: FormGroup;
   submitted = false;
-  saveOffre():void {
-    const offre = {
-      description: this.offre.description,
-      intitule: this.offre.intitule,
-      nbPlaces: this.offre.nbPlaces,
-    };
-    console.log(this.offre);
-    this.offerService.addOffre(this.tokenStorageService.getUser().id,this.offre).subscribe(
-      data =>{
-        this.submitted=true;
+
+  constructor(
+      private router: Router,
+      private offerService: OffreService,
+      private tokenStorageService: StorageService,
+      private fb: FormBuilder
+  ) {
+    this.offreForm = this.fb.group({
+      intitule: ['', [Validators.required, Validators.minLength(5)]],
+      description: ['', [Validators.required, Validators.minLength(15)]],
+      nbPlaces: [undefined, Validators.required],
+    });
   }
-    )
-   // this.router.navigate(['offres']);
-}
+
+  saveOffre(): void {
+    if (this.offreForm.valid) {
+      const offre: Offre = {
+        description: this.offreForm.value.description,
+        intitule: this.offreForm.value.intitule,
+        nbPlaces: this.offreForm.value.nbPlaces,
+      };
+
+      this.offerService
+          .addOffre(this.tokenStorageService.getUser().id, offre, 1)
+          .subscribe((data) => {
+            this.submitted = true;
+          });
+
+      this.router.navigate(['mesoffres']);
+    } else {
+      // Mark form controls as touched to display validation messages
+      this.offreForm.markAllAsTouched();
+    }
+  }
 }

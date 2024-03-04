@@ -12,10 +12,15 @@ import { ReclamationComponent } from './reclamation/reclamation.component';
 import { SignupComponent } from './signup/signup.component';
 import { AddoComponent } from './offre/addo/addo.component';
 import { ModifComponent } from './offre/modif/modif.component';
+import {DetailsComponent} from "./offre/details/details.component";
+import {IntrouvableComponent} from "./introuvable/introuvable.component";
+import {AccessDeniedComponent} from "./access-denied/access-denied.component";
+import { MesoffresComponent } from './offre/mesoffres/mesoffres.component';
+import { DetailsforexposantComponent } from './offre/detailsforexposant/detailsforexposant.component';
 /*import { EtudiantComponent } from './etudiant/etudiant.component';
 import { AdminComponent } from './admin/admin.component';
 import { ExposantComponent } from './exposant/exposant.component';*/
-import { AccessDeniedComponent } from './access-denied/access-denied.component';
+
 /*import {ExposantModule} from "./exposant/exposant.module";
 import {EtudiantModule} from "./etudiant/etudiant.module";
 import {AdminModule} from "./admin/admin.module";*/
@@ -31,7 +36,11 @@ import {AdminModule} from "./admin/admin.module";*/
     SignupComponent,
     AddoComponent,
     ModifComponent,
-    AccessDeniedComponent
+    AccessDeniedComponent,
+    IntrouvableComponent,
+    DetailsComponent,
+    MesoffresComponent,
+    DetailsforexposantComponent,
   ],
     imports: [
         BrowserModule,

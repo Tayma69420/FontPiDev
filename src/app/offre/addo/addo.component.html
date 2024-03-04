@@ -1,4 +1,4 @@
-<main class="page-content">
+<main class="page-content" style="margin-top: -600px">
   <!--breadcrumb-->
   <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
     <h1 class="card-body text-center"> Ajouter offre</h1>
@@ -12,24 +12,33 @@
           <div class="border p-3 rounded">
             <h6 class="mb-0 text-uppercase" >Formulaire d'ajout</h6>
             <hr/>
-            <form class="row g-3" *ngIf="!submitted">
-              <div class="col-12">
-                <label class="form-label">Intitulé</label>
-                <input id="intiule"  name="intiule" type="text" class="form-control" required minlength="10" [(ngModel)]="offre.intitule">
+
+              <form class="row g-3" *ngIf="!submitted" (ngSubmit)="saveOffre()" [formGroup]="offreForm" novalidate>
+                <div class="col-12">
+                  <label class="form-label">Intitulé</label>
+                  <input id="intitule" name="intitule" type="text" class="form-control" formControlName="intitule">
+                  <small><div *ngIf="offreForm.get('intitule')?.errors?.['required']" class="text-danger">Champ obligatoire.</div></small>
+                  <small><div *ngIf="offreForm.get('intitule')?.errors?.['minlength']" class="text-danger">Minimum 5 caractères requis.</div></small>
                 </div>
 
               <div class="col-12">
                 <label class="form-label">Description</label>
-                <input class="form-control" id="description"  name="description" type="text" [(ngModel)]="offre.description">
+                <input class="form-control" id="description" name="description" type="text" formControlName="description">
+                <small><div *ngIf="offreForm.get('description')?.errors?.['required']" class="text-danger">Champ obligatoire.</div></small>
+                <small><div *ngIf="offreForm.get('description')?.errors?.['minlength']" class="text-danger">Minimum 15 caractères requis.</div></small>
               </div>
+
               <div class="col-12">
                 <label class="form-label">Nombre de places</label>
-                <input type="number" id="nbPlaces"  name="nbPlaces" class="form-control" [(ngModel)]="offre.nbPlaces">
+                <input type="number" id="nbPlaces" name="nbPlaces" class="form-control" formControlName="nbPlaces">
+                <small><div *ngIf="offreForm.get('nbPlaces')?.errors?.['required']" class="text-danger">Champ obligatoire.</div></small>
               </div>
+
               <div class="card-body text-center">
-                <button (click)="saveOffre()" class="btn btn-outline-success px-5 rounded-0">Ajouter</button>
+                <button type="submit" class="btn btn-outline-success px-5 rounded-0">Ajouter</button>
               </div>
             </form>
+
           </div>
         </div>
       </div>

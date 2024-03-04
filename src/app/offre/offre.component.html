@@ -1,37 +1,44 @@
 <main class="page-content" style="margin-top: -600px">
-  <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-    <button (click)="goToAdd()" type="button" class="btn btn-outline-dark px-5 rounded-0">Ajouter Offre</button>
-  </div>
+    <div class="card bg-transparent shadow-none">
+      <div class="mb-3">
+        <label for="filterInput" class="form-label">Chercher </label>
+        <input type="text" class="form-control" id="filterInput" [(ngModel)]="filterText" (ngModelChange)="filterOffers()" />
+      </div>
+      <div class="card-header"><h6 class="mb-0 text-uppercase">Liste des Offres</h6></div>
+      <div class="card-body">
+        <div class="row row-cols-1 row-cols-lg-3 justify-content-center g-lg-5">
+          <div class="col" *ngFor="let i of filteredOffers">
+            <div class="card-header">
+              <ng-container *ngIf="roleConnected=='ROLE_ADMIN'">
+              <a (click)="detailsAdmin(i.idOffre)" ><i class="bi bi-stack"> Plus d'informations</i></a>
+               </ng-container>
+              <ng-container *ngIf="roleConnected=='ROLE_EXPOSANT'">
+                <a (click)="detailsExposant(i.idOffre)" ><i class="bi bi-stack"> Plus d'informations</i></a>
+              </ng-container>
+              <ng-container *ngIf="roleConnected=='ROLE_ETUDIANT'">
+                <a (click)="detailsEtudiant(i.idOffre)" ><i class="bi bi-stack"> Plus d'informations</i></a>
+              </ng-container>
+            </div>
+            <div class="card">
+              <img [src]="i.image" height="100px" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">{{i.intitule}}</h5>
+                <p class="card-text">Description : {{i.description}}</p>
+                <p class="card-text">Nombre de places : {{i.nbPlaces}}</p>
+                <p class="card-text"> {{i.dateDeCreation | date:'yyyy-MM-dd'}}</p>
+                <ng-container *ngIf="roleConnected=='ROLE_ETUDIANT'">
+                <a href="#" class="btn btn-outline-dark" style="margin-right: 2px"><i class="bi bi-paperclip"></i>Postuler</a>
+                </ng-container>
+                <ng-container *ngIf="roleConnected=='ROLE_ADMIN'">
+                  <a (click)="delete(i.idOffre)" class="btn btn-outline-danger"><i class="bi bi-trash-fill"></i>Supprimer</a>
+                </ng-container>
 
-  <div class="ms-lg-3">
-    <div class="btn-group">
-
-
-    </div>
-  </div>
-  <div class="card bg-transparent shadow-none">
-    <div class="card-body">
-
-      <h6 class="mb-0 text-uppercase">Liste des Offres</h6>
-
-      <div class="row row-cols-1 row-cols-lg-3 justify-content-center g-lg-5">
-        <div class="col" *ngFor="let i of ToShow">
-          <div class="card">
-            <img [src]="i.image" height="100px" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">{{i.intitule}}</h5>
-              <p class="card-text">Description : {{i.description}}</p>
-              <p class="card-text">Nombre de places : {{i.nbPlaces}}</p>
-              <p class="card-text"> {{i.dateDeCreation | date:'yyyy-MM-dd'}}</p>
-              <a href="#" class="btn btn-outline-dark" style="margin-right: 5px">Postuler</a>
-              <a (click)="edit(i.idOffre)" class="btn btn-outline-secondary">Modifier</a>
+              </div>
             </div>
           </div>
         </div>
-
-
-
       </div>
     </div>
-  </div>
-</main>
+  </main>
+
+

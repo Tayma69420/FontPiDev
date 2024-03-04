@@ -1,7 +1,6 @@
 <ng-container *ngIf="test==true;else elseBlock">
 <div class="wrapper">
 
-  <!--start content-->
   <main class="authentication-content">
     <div class="container-fluid">
       <div class="authentication-card">
@@ -12,22 +11,14 @@
             </div>
             <div class="col-lg-6">
               <div class="card-body p-4 p-sm-5">
-                <h5 class="card-title">Sign In</h5>
-                <p class="card-text mb-5">See your growth and get consulting support!</p>
+                <h1 class="card-title">S'authentifier</h1>
+                <h3 class="card-text mb-5">"Empowering Dreams, Igniting Futures: Where Passion Meets Opportunity!"!</h3>
                 <form class="form-body" *ngIf="!isLoggedIn" name="form"  (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-                  <div class="d-grid">
-                    <a class="btn btn-white radius-30" href="javascript:;"><span class="d-flex justify-content-center align-items-center">
-                            <img class="me-2" src="assets/images/icons/search.svg" width="16" alt="">
-                            <span>Sign in with Google</span>
-                          </span>
-                    </a>
-                  </div>
-                  <div class="login-separater text-center mb-4"> <span>OR SIGN IN WITH EMAIL</span>
-                    <hr>
-                  </div>
+
+
                   <div class="row g-3">
                     <div class="col-12">
-                      <label class="form-label">User</label>
+                      <label class="form-label">Entrer le Username</label>
                       <div class="ms-auto position-relative">
                         <div class="position-absolute top-50 translate-middle-y search-icon px-3"><i class="bi bi-envelope-fill"></i></div>
                         <input type="email" class="form-control radius-30 ps-5" name="username" [(ngModel)]="form.username" required #username="ngModel" [ngClass]="{ 'is-invalid': f.submitted && username.errors }">
@@ -37,7 +28,7 @@
                       </div>
                     </div>
                     <div class="col-12">
-                      <label  class="form-label">Enter Password</label>
+                      <label  class="form-label">Entrer Mot De Passe</label>
                       <div class="ms-auto position-relative">
                         <div class="position-absolute top-50 translate-middle-y search-icon px-3"><i class="bi bi-lock-fill"></i></div>
                         <input type="password" class="form-control radius-30 ps-5" name="password"  [(ngModel)]="form.password" required minlength="4" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.errors }">
@@ -47,10 +38,10 @@
                     <div class="col-6">
                       <div class="form-check form-switch">
                         <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="">
-                        <label class="form-check-label" for="flexSwitchCheckChecked">Remember Me</label>
+                        <label class="form-check-label" for="flexSwitchCheckChecked">Rapelle moi</label>
                       </div>
                     </div>
-                    <div class="col-6 text-end">	<a href="authentication-forgot-password.html">Forgot Password ?</a>
+                    <div class="col-6 text-end">	<a href="authentication-forgot-password.html">Mot de passe oublié ?</a>
                     </div>
                     <div class="col-12">
                       <div class="d-grid">
@@ -58,7 +49,7 @@
                       </div>
                     </div>
                     <div class="col-12">
-                      <p class="mb-0">Don't have an account yet ? <a (click)="onClick()">Sign up here</a></p>
+                      <p class="mb-0">Vous n'avez pas de compte ? <a (click)="onClick()" style="color:#1a2232;text-decoration: underline">Fais Un Compte ici</a></p>
                     </div>
                   </div>
                 </form>

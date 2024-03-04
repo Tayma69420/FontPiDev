@@ -1,9 +1,8 @@
-<main class="page-content">
-  <!--breadcrumb-->
-  <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-    <h1 class="card-body text-center"> Modifier offre</h1>
-  </div>
 
+  <main class="page-content" style="margin-top: -600px">
+  <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+    <h1 class="card-body text-center"> Modifier Offre</h1>
+  </div>
   <div class="row">
     <div class="col-xl-6 mx-auto">
 
@@ -12,22 +11,27 @@
           <div class="border p-3 rounded">
             <h6 class="mb-0 text-uppercase" >Formulaire de modification</h6>
             <hr/>
-            <form class="row g-3">
+            <form class="row g-3" (ngSubmit)="update()">
               <div class="col-12">
                 <label class="form-label">Intitulé</label>
-                <input id="intiule"  name="intiule" type="text" class="form-control" [(ngModel)]="offre.intitule">
+                <input id="intitule" name="intitule" type="text" class="form-control" [(ngModel)]="offre.intitule" required minlength="10">
+               <small><div *ngIf="formErrors.intitule" class="text-danger">{{ formErrors.intitule }}</div></small>
               </div>
 
               <div class="col-12">
                 <label class="form-label">Description</label>
-                <input class="form-control" id="description"  name="description" type="text" [(ngModel)]="offre.description">
+                <input class="form-control" id="description" name="description" type="text" [(ngModel)]="offre.description">
+                <small><div *ngIf="formErrors.description" class="text-danger">{{ formErrors.description }}</div></small>
               </div>
+
               <div class="col-12">
                 <label class="form-label">Nombre de places</label>
-                <input type="number" id="nbPlaces"  name="nbPlaces" class="form-control" [(ngModel)]="offre.nbPlaces">
+                <input type="number" id="nbPlaces" name="nbPlaces" class="form-control" [(ngModel)]="offre.nbPlaces">
+                <small><div *ngIf="formErrors.nbPlaces" class="text-danger">{{ formErrors.nbPlaces }}</div></small>
               </div>
+
               <div class="card-body text-center">
-                <button (click)="update()" class="btn btn-outline-success px-5 rounded-0">Mofifier</button>
+                <button type="submit" class="btn btn-outline-success px-5 rounded-0">Modifier</button>
               </div>
             </form>
           </div>
