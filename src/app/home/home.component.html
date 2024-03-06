@@ -1,1 +1,16 @@
-<p>home works!</p>
+<style>
+    .chart-container canvas {
+        width: 300px;
+        height: 300px;
+    }
+</style>
+<ng-container *ngIf="roleConnected=='ROLE_ADMIN'">
+<main class="page-content container-fluid" style="margin-top: -650px; margin-right: -400px">
+    <div class="card-body">
+        <script src="path/to/chartjs/dist/chart.umd.js"></script>
+        <div class="chart-container">
+            <canvas id="MyChart" class="chart-canvas">{{chart}}</canvas>
+        </div>
+    </div>
+</main>
+</ng-container>

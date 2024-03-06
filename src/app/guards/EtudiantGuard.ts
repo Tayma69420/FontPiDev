@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
-import { StorageService} from "../services/storage.service"; // Adjust the path based on your actual structure
-import { UserRole} from "../models/roles.enum"; // Adjust the path based on your actual structure
+import { StorageService} from "../services/storage.service";
+import { UserRole} from "../models/roles.enum";
 
 @Injectable({
   providedIn: 'root',

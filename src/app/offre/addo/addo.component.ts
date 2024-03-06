@@ -33,6 +33,8 @@ export class AddoComponent {
         description: this.offreForm.value.description,
         intitule: this.offreForm.value.intitule,
         nbPlaces: this.offreForm.value.nbPlaces,
+        image:this.tokenStorageService.getUser().image,
+        dateDeCreation:new Date()
       };
 
       this.offerService
@@ -43,7 +45,7 @@ export class AddoComponent {
 
       this.router.navigate(['mesoffres']);
     } else {
-      // Mark form controls as touched to display validation messages
+
       this.offreForm.markAllAsTouched();
     }
   }

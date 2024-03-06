@@ -3,6 +3,7 @@ import {OffreService} from "../services/offre.service";
 import {Router} from "@angular/router";
 import {Offre} from "../models/offre.model";
 import {StorageService} from "../services/storage.service";
+import {add} from "ngx-bootstrap/chronos";
 
 @Component({
   selector: 'app-offre',
@@ -51,11 +52,13 @@ export class OffreComponent implements OnInit{
         offer.intitule && offer.intitule.toLowerCase().includes(this.filterText.toLowerCase())
     );
   }
-  detailsExposant(idOffre:any){
-    this.router.navigate(['detailss/offreee/'+idOffre]);
-  }
   detailsEtudiant(idOffre:any){
     this.router.navigate(['detailsoffree/' + idOffre]);
   }
+  postuler(idOffre:any){
+    this.router.navigate(['postuler/' + idOffre]);
+  }
 
+
+  protected readonly add = add;
 }

@@ -17,13 +17,17 @@ import {IntrouvableComponent} from "./introuvable/introuvable.component";
 import {AccessDeniedComponent} from "./access-denied/access-denied.component";
 import { MesoffresComponent } from './offre/mesoffres/mesoffres.component';
 import { DetailsforexposantComponent } from './offre/detailsforexposant/detailsforexposant.component';
-/*import { EtudiantComponent } from './etudiant/etudiant.component';
-import { AdminComponent } from './admin/admin.component';
-import { ExposantComponent } from './exposant/exposant.component';*/
+import { NgChartsModule } from 'ng2-charts';
+import { AjouterComponent } from "./reclamation/ajouter/ajouter.component";
+import { ModifierComponent } from './reclamation/modifier/modifier.component';
+import { MesreclamationComponent } from './reclamation/mesreclamation/mesreclamation.component';
+import { CandidatureComponent } from './candidature/candidature.component';
+import { DetailscandComponent } from './candidature/detailscand/detailscand.component';
+import { MescandidaturesComponent } from './candidature/mescandidatures/mescandidatures.component';
+import { WorkflowComponent } from './candidature/workflow/workflow.component';
+import { EditcandComponent } from './candidature/editcand/editcand.component';
+import { PostulerComponent } from './candidature/postuler/postuler.component';
 
-/*import {ExposantModule} from "./exposant/exposant.module";
-import {EtudiantModule} from "./etudiant/etudiant.module";
-import {AdminModule} from "./admin/admin.module";*/
 
 @NgModule({
   declarations: [
@@ -41,6 +45,15 @@ import {AdminModule} from "./admin/admin.module";*/
     DetailsComponent,
     MesoffresComponent,
     DetailsforexposantComponent,
+      AjouterComponent,
+      ModifierComponent,
+      MesreclamationComponent,
+      CandidatureComponent,
+      DetailscandComponent,
+      MescandidaturesComponent,
+      WorkflowComponent,
+      EditcandComponent,
+      PostulerComponent
   ],
     imports: [
         BrowserModule,
@@ -48,9 +61,7 @@ import {AdminModule} from "./admin/admin.module";*/
         AppRoutingModule,
         FormsModule,
         ReactiveFormsModule,
-      /*AdminModule,
-      EtudiantModule,
-      ExposantModule,*/
+        NgChartsModule
     ],
   providers: [],
   bootstrap: [AppComponent]
