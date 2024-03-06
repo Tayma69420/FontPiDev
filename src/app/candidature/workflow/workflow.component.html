@@ -1,0 +1,110 @@
+<main class="page-content" style="margin-top: -600px">
+
+  <div class="card shadow">
+    <div class="card-body">
+      <div class="container py-2">
+        <h2 class="font-weight-light text-center text-muted py-3">Timeline de Votre Candidature à {{cand.offre.intitule  }}</h2>
+        <div class="row g-0">
+          <div class="col-sm"></div>
+          <div class="col-sm-1 text-center flex-column d-none d-sm-flex">
+            <div class="row h-50">
+              <div class="col">&nbsp;</div>
+              <div class="col">&nbsp;</div>
+            </div>
+            <h5 class="m-2">
+              <span class="badge rounded-pill bg-warning border">&nbsp;</span>
+            </h5>
+            <div class="row h-50">
+              <div class="col border-end">&nbsp;</div>
+              <div class="col">&nbsp;</div>
+            </div>
+          </div>
+          <div class="col-sm py-2">
+            <div class="card border-warning radius-15">
+              <div class="card-body">
+                <div class="float-end text-warning small">{{cand.dateDeCandidature | date:'MMM d, y H:mm'}}</div>
+                <h4 class="card-title text-warning">Candidature</h4>
+                <p class="card-text"> Compétences : {{cand.competence}}, Experience : {{cand.experience}}<br> Langues : {{cand.langues}}</p>
+                <p class="card-text">Vous avez soumis votre candidature.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Deuxième étape du timeline -->
+        <div *ngIf="cand.status !== 'Encours'" class="row g-0">
+          <div class="col-sm py-2">
+            <div class="card border-primary shadow radius-15">
+              <div class="card-body">
+                <div class="float-end text-primary small">{{cand.dateDeMiseEnTrt | date:'MMM d, y H:mm'}}</div>
+                <h4 class="card-title text-primary">Mise en Traitement</h4>
+                <p class="card-text">Votre candidature est en cours de traitement.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-1 text-center flex-column d-none d-sm-flex">
+            <div class="row h-50">
+              <div class="col border-end">&nbsp;</div>
+              <div class="col">&nbsp;</div>
+            </div>
+            <h5 class="m-2">
+              <span class="badge rounded-pill bg-primary">&nbsp;</span>
+            </h5>
+            <div class="row h-50">
+              <div class="col border-end">&nbsp;</div>
+              <div class="col">&nbsp;</div>
+            </div>
+          </div>
+          <div class="col-sm">
+          </div>
+        </div>
+        <div *ngIf="cand.status === 'Acceptee' && cand.status !== 'Traitee'" class="row g-0">
+          <div class="col-sm">
+          </div>
+          <div class="col-sm-1 text-center flex-column d-none d-sm-flex">
+            <div class="row h-50">
+              <div class="col border-end">&nbsp;</div>
+              <div class="col">&nbsp;</div>
+            </div>
+            <h5 class="m-2">
+              <span class="badge rounded-pill bg-success border">&nbsp;</span>
+            </h5>
+          </div>
+          <div class="col-sm py-2">
+            <div class="card border-success radius-15">
+              <div class="card-body">
+                <div class="float-end text-success small">{{cand.dateDAcceptance | date:'MMM d, y H:mm'}}</div>
+                <h4 class="card-title text-success">Acceptation</h4>
+                <p>Status : {{cand.status}}</p>
+                <p>Votre candidature a été acceptée.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="cand.status === 'Refusee' && cand.status !== 'Traitee'" class="row g-0">
+          <div class="col-sm">
+          </div>
+          <div class="col-sm-1 text-center flex-column d-none d-sm-flex">
+            <div class="row h-50">
+              <div class="col border-end">&nbsp;</div>
+              <div class="col">&nbsp;</div>
+            </div>
+            <h5 class="m-2">
+              <span class="badge rounded-pill bg-danger border">&nbsp;</span>
+            </h5>
+          </div>
+          <div class="col-sm py-2">
+            <div class="card border-danger radius-15">
+              <div class="card-body">
+                <div class="float-end text-danger small">{{cand.datedeRefus | date:'MMM d, y H:mm'}}</div>
+                <h4 class="card-title text-danger">Refus</h4>
+                <p>Status : {{cand.status}}</p>
+                <p>Raison de refus : {{cand.remarque}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

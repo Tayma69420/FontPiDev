@@ -1,0 +1,60 @@
+<main class="page-content" style="margin-top: -650px">
+  <div class="card shadow">
+    <div class="card-header">
+      <h6 class="mb-0 text-uppercase">pOSTULER</h6>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-xl-6 mx-auto">
+
+          <div class="card">
+            <div class="card-body">
+              <div class="border p-3 rounded">
+                <form class="row g-3" >
+                  <div class="col-12">
+                    <label class="form-label">Experience</label>
+                    <input id="experience" name="experience" type="text" [(ngModel)]="candidature.experience" class="form-control">
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label">Compétence</label>
+                    <input class="form-control" id="competence" name="competence" type="text" [(ngModel)]="candidature.competence">
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label">Formations</label>
+                    <input class="form-control" id="formation" name="formation"  type="text" [(ngModel)]="candidature.formation">
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label">Langues</label>
+                    <input class="form-control" id="langues" name="langues"  type="text" [(ngModel)]="candidature.langues">
+                  </div>
+                  <div class="col-12">
+                    <label for="lettreDeMotivation" class="form-label">Lettre de Motivation</label>
+                    <input id="lettreDeMotivation" name="lettreDeMotivation" type="file" class="form-control" (change)="onFileChange($event)" [(ngModel)]="candidature.lettreDeMotivation">
+                  </div>
+                  <div class="d-flex justify-content-between mb-3">
+                    <button type="submit" class="btn btn-primary rounded-0">
+                      <i class="bi bi-check-circle"></i> Postuler
+                    </button>
+
+                    <button type="submit" class="btn btn-outline-primary rounded-0 ms-2" (click)="saveAsDraft()">
+                      <i class="bi bi-file-earmark-text"></i> Sauvegarder en tant que brouillon
+                    </button>
+
+                    <button type="button" class="btn btn-danger rounded-0 ms-2" (click)="deleteDraft()">
+                      <i class="bi bi-trash"></i> Supprimer le brouillon
+                    </button>
+                  </div>
+
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>

@@ -1,18 +1,188 @@
-<!-- app.component.html (ou votre composant Angular) -->
-<div class="wrapper">
-<div class="header">
-  <div class="logo">
-    <!-- Insérez ici le code pour votre logo -->
-    <img  alt="Logo">
-  </div>
+<ng-container *ngIf="roleConnected=='ROLE_ETUDIANT'">
+ <header class="top-header">
+   <nav class="navbar navbar-expand-lg justify-content-between">
+     <div class="mobile-toggle-icon fs-3">
+       <i class="bi bi-list"></i>
+     </div>
+   </nav>
+ </header>
 
-  <div class="navbar">
-    <a routerLink="reclamations">Réclamations</a>
-    <a routerLink="candidatures">candidatures</a>
-    <a routerLink="offres">offres</a>
 
-  </div>
-</div>
+ <aside class="sidebar-wrapper" data-simplebar="true">
+    <div class="sidebar-header">
+      <div>
+        <img src="assets/logo.png" class="logo-icon" alt="logo icon">
+      </div>
+      <div>
+        <h4 class="logo-text">EspritForum</h4>
+      </div>
 
+    </div>
+
+    <ul class="metismenu" id="menu">
+      <li>
+        <a routerLink="" >
+          <div class="parent-icon"><i class="bi bi-house-fill"></i>
+          </div>
+          <div class="menu-title">Home</div>
+        </a>
+
+      </li>
+      <li class="menu-label">Sections</li>
+      <li>
+
+        <a routerLink="offres"  >
+          <div class="parent-icon"><i class="bi bi-newspaper"></i>
+          </div>
+          <div class="menu-title">Offres de Stages</div>
+        </a>
+          <a routerLink="mesreclamation"  >
+              <div class="parent-icon"><i class="bi bi-book"></i>
+              </div>
+              <div class="menu-title">Mes Réclamations</div>
+          </a>
+          <a routerLink="ajouterre"  >
+              <div class="parent-icon"><i class="bi bi-person-fill"></i>
+              </div>
+              <div class="menu-title">Réclamer</div>
+          </a>
+        <a routerLink="mescandidatures">
+          <div class="parent-icon"><i class="bi bi-files"></i>
+          </div>
+          <div class="menu-title">Mes Candidatures</div>
+        </a>
+
+        <a class="text-decoration-none" (click)="logout()" >
+          <i class="bi bi-arrow-left-circle"></i>
+          <div class="menu-title">Se Déconnecter</div>
+        </a>
+      </li>
+    </ul>
+
+
+  </aside>
 <router-outlet></router-outlet>
-</div>
+</ng-container>
+<ng-container *ngIf="roleConnected=='ROLE_ADMIN'">
+    <header class="top-header">
+        <nav class="navbar navbar-expand-lg justify-content-between">
+            <div class="mobile-toggle-icon fs-3">
+                <i class="bi bi-list"></i>
+            </div>
+
+
+        </nav>
+    </header>
+
+
+    <aside class="sidebar-wrapper" data-simplebar="true">
+        <div class="sidebar-header">
+            <div>
+                <img src="assets/logo.png" class="logo-icon" alt="logo icon">
+            </div>
+            <div>
+                <h4 class="logo-text">EspritForum</h4>
+            </div>
+
+        </div>
+
+        <ul class="metismenu" id="menu">
+            <li>
+                <a routerLink="" >
+                    <div class="parent-icon"><i class="bi bi-house-fill"></i>
+                    </div>
+                    <div class="menu-title">Home</div>
+                </a>
+
+            </li>
+            <li class="menu-label">Sections</li>
+            <li>
+
+                <a routerLink="offress"  >
+                    <div class="parent-icon"><i class="bi bi-newspaper"></i>
+                    </div>
+                    <div class="menu-title">Offres de Stages</div>
+                </a>
+              <a routerLink="candidatures"  >
+                <div class="parent-icon"><i class="bi bi-person-lines-fill"></i>
+                </div>
+                <div class="menu-title">Toutes les Candidatures</div>
+              </a>
+                <a routerLink="reclamations"  >
+                    <div class="parent-icon"><i class="bi bi-book"></i>
+                    </div>
+                    <div class="menu-title">Les Réclamations</div>
+                </a>
+                <a class="text-decoration-none" (click)="logout()" >
+                    <i class="bi bi-arrow-left-circle"></i>
+                    <div class="menu-title">Se Déconnecter</div>
+                </a>
+            </li>
+        </ul>
+
+
+    </aside>
+    <router-outlet></router-outlet>
+</ng-container>
+
+<ng-container *ngIf="roleConnected=='ROLE_EXPOSANT'">
+    <header class="top-header">
+        <nav class="navbar navbar-expand-lg justify-content-between">
+            <div class="mobile-toggle-icon fs-3">
+                <i class="bi bi-list"></i>
+            </div>
+
+
+        </nav>
+    </header>
+
+
+    <aside class="sidebar-wrapper" data-simplebar="true">
+        <div class="sidebar-header">
+            <div>
+                <img src="assets/logo.png" class="logo-icon" alt="logo icon">
+            </div>
+            <div>
+                <h4 class="logo-text">EspritForum</h4>
+            </div>
+
+        </div>
+
+        <ul class="metismenu" id="menu">
+            <li>
+                <a routerLink="" >
+                    <div class="parent-icon"><i class="bi bi-house-fill"></i>
+                    </div>
+                    <div class="menu-title">Home</div>
+                </a>
+
+            </li>
+            <li class="menu-label">Sections</li>
+            <li>
+
+                <a routerLink="mesoffres"  >
+                    <div class="parent-icon"><i class="bi bi-newspaper"></i>
+                    </div>
+                    <div class="menu-title">Mes Offres de Stages Proposés</div>
+                </a>
+                <a routerLink="mesreclamatios"  >
+                    <div class="parent-icon"><i class="bi bi-book"></i>
+                    </div>
+                    <div class="menu-title">Mes Réclamations</div>
+                </a>
+                <a routerLink="ajouterrec"  >
+                    <div class="parent-icon"><i class="bi bi-person-fill"></i>
+                    </div>
+                    <div class="menu-title">Réclamer</div>
+                </a>
+                <a class="text-decoration-none" (click)="logout()" >
+                    <i class="bi bi-arrow-left-circle"></i>
+                    <div class="menu-title">Se Déconnecter</div>
+                </a>
+            </li>
+        </ul>
+
+
+    </aside>
+    <router-outlet></router-outlet>
+</ng-container>

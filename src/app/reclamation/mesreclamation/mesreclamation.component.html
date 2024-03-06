@@ -1,0 +1,48 @@
+<main class="page-content container-fluid" style="margin-top: -600px;padding-right: 325px">
+  <div class="card mt-4">
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+
+          <th scope="col">Titre</th>
+          <th scope="col">Description</th>
+          <th scope="col">Date de Reclamation</th>
+          <th scope="col">Status</th>
+          <th scope="col">Image</th>
+          <th scope="col">User</th>
+          <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let i of ToShow; let idx = index">
+
+          <td>{{ i.titre }}</td>
+          <td>{{ i.description }}</td>
+          <td>{{ i.dateDeReclamation  | date:'yyyy-MM-dd'}}</td>
+          <td>
+            <div class="form-check form-switch">
+              <label class="form-check-label" for="statusCheckbox{{i.idReclamation}}" [ngClass]="{'text-danger': !i.status, 'text-primary': i.status}">
+                {{ i.status ? 'Treated' : 'Not Treated' }}
+              </label>
+            </div>
+          </td>
+          <td><img [src]="i.image" width="50px" height="50px">
+          </td>
+          <td>{{i.user?.username}}</td>
+          <td>
+            <button (click)="delete(i.idReclamation)" class="btn btn-danger btn-sm me-1">Delete</button>
+            <ng-container *ngIf="roleConnected=='ROLE_ETUDIANT'">
+            <button (click)="modifierEtud(i.idReclamation)" class="btn btn-secondary btn-sm"  [disabled]="i.status">Modifier</button>
+            </ng-container>
+            <ng-container *ngIf="roleConnected=='ROLE_EXPOSANT'">
+              <button (click)="modifierExp(i.idReclamation)" class="btn btn-secondary btn-sm"  [disabled]="i.status">Modifier</button>
+            </ng-container>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+

@@ -1,0 +1,21 @@
+<main class="page-content" style="margin-top: -600px">
+  <div class="card shadow">
+    <div class="card-header">
+      <h6 class="mb-0 text-uppercase">Informations sur cette Candidature</h6>
+    </div>
+    <div class="card-body">
+      <ul>
+        <p *ngIf="cand.competence"><i class="bi bi-list-check" style="margin-right: 10px"></i> Compétences : {{cand.competence}}</p><br>
+        <p *ngIf="cand.formation"><i class="bi bi-clipboard" style="margin-right: 10px"></i>Formations : {{cand.formation}}</p><br>
+        <p *ngIf="cand.langues"><i class="bi bi-translate" style="margin-right: 10px"></i>Langues : {{cand.langues}}</p><br>
+        <p *ngIf="cand.experience"><i class="bi bi-bank" style="margin-right: 10px"></i>Expèriences : {{cand.experience}}</p><br>
+        <p *ngIf="cand.status"><i class="bi bi-gear" style="margin-right: 10px"></i>Status : {{cand.status}}</p><br>
+        <p *ngIf="cand.dateDeCandidature"><i class="bi bi-calendar" style="margin-right: 10px"></i>Date de Mise de Candidature : {{cand.dateDeCandidature | date:'yyyy-MM-dd HH:mm'}}</p><br>
+        <p *ngIf="cand.dateDeMiseEnTrt"><i class="bi bi-calendar" style="margin-right: 10px"></i>Date de Mise en Traitement : {{cand.dateDeMiseEnTrt | date:'yyyy-MM-dd HH:mm'}}</p><br>
+        <p *ngIf="cand.dateDAcceptance"><i class="bi bi-calendar-check" style="margin-right: 10px"></i>Date d'Acceptation : {{cand.dateDAcceptance | date:'yyyy-MM-dd HH:mm'}}</p><br>
+        <p *ngIf="cand.datedeRefus"><i class="bi bi-calendar-x" style="margin-right: 10px"></i>Date de Refus : {{cand.datedeRefus | date:'yyyy-MM-dd HH:mm'}}</p><br>
+        <p *ngIf="cand.remarque"><i class="bi bi-card-text" style="margin-right: 10px"></i>Remarque : {{cand.remarque}}</p><br>
+      </ul>
+    </div>
+  </div>
+</main>

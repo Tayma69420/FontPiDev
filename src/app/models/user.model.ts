@@ -5,5 +5,4 @@ export class User {
   password?:any;
   tel?:any;
   image?:any;
-  roles?:any;
 }

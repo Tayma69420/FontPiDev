@@ -1,0 +1,39 @@
+<main class="page-content" style="margin-top: -600px">
+  <div class="card shadow">
+    <div class="card-header">
+      <h6 class="mb-0 text-uppercase">Mes Candidatures</h6>
+    </div>
+    <div class="card-body">
+
+
+      <table class="table mb-0 table-hover text-center">
+        <thead>
+        <tr>
+          <th scope="col">Position</th>
+          <th scope="col">Experience</th>
+          <th scope="col">Formation</th>
+          <th scope="col">Competence</th>
+          <th scope="col">Langues</th>
+          <th scope="col">Status</th>
+          <th scope="col">See Workflow</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let i of ToShow; let idx = index">
+          <td>{{ i.offre?.intitule }}</td>
+          <td>{{ i.experience }}</td>
+          <td>{{ i.formation }}</td>
+          <td>{{ i.competence }}</td>
+          <td>{{ i.langues }}</td>
+          <td>{{ i.status }}</td>
+          <td>
+            <a (click)="goToWorkflow(i.idCandidature)" class="text-warning"><i class="bi bi-eye" style="margin-right: 10px"></i></a>
+            <a *ngIf="i.status === 'Encours'" (click)="editMyCand(i.idCandidature)" class="text-danger"><i class="bi bi-pencil"></i></a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</main>
