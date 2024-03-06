@@ -23,36 +23,53 @@ import {MescandidaturesComponent} from "./candidature/mescandidatures/mescandida
 import {WorkflowComponent} from "./candidature/workflow/workflow.component";
 import {EditcandComponent} from "./candidature/editcand/editcand.component";
 import {PostulerComponent} from "./candidature/postuler/postuler.component";
+import {SessionComponent} from "./session/session.component";
+import {AddsessionComponent} from "./session/addsession/addsession.component";
+import {UpdatesessionComponent} from "./session/updatesession/updatesession.component";
+import {MaterielComponent} from "./materiel/materiel.component";
+import {CalendarComponent} from "./calendar/calendar.component";
+import {AddmaterielComponent} from "./materiel/addmateriel/addmateriel.component";
+import {UpdatematerielComponent} from "./materiel/updatemateriel/updatemateriel.component";
 
 
 const routes: Routes = [
-  {path:'',component:HomeComponent},
-  { path:'login', component: LoginComponent },
-  { path:'offres', component: OffreComponent ,canActivate:[EtudiantGuard] },
-  { path:'offress', component: OffreComponent ,canActivate:[AdminGuard] },
-  { path:'addoffre',component:AddoComponent,canActivate:[ExposantGuard] },
-  //{ path:'details/:idOffre',component:DetailsforexposantComponent},
-  { path:'modifoff/:idOffre', component: ModifComponent,canActivate:[ExposantGuard] },
-  { path:'detailsoffre/:idOffre',component:DetailsComponent,canActivate:[ExposantGuard] } ,
-  { path:'detailsoffree/:idOffre',component:DetailsComponent,canActivate:[AdminGuard] } ,
-  { path:'mesoffres',component:MesoffresComponent,canActivate:[ExposantGuard] },
-  { path:'reclamations', component: ReclamationComponent,canActivate:[AdminGuard] },
-  { path:'ajouterrec', component: AjouterComponent,canActivate:[ExposantGuard]},
-  { path:'ajouterre', component: AjouterComponent,canActivate:[EtudiantGuard]},
-  { path:'modifRec/:idReclamation', component: ModifierComponent,canActivate:[EtudiantGuard]},
-  { path:'modifRecl/:idReclamation', component: ModifierComponent,canActivate:[ExposantGuard]},
-  { path:'mesreclamation', component: MesreclamationComponent,canActivate:[EtudiantGuard]},
-  { path:'mesreclamatios', component: MesreclamationComponent,canActivate:[ExposantGuard]},
-  { path:'candidatures', component:CandidatureComponent,canActivate:[AdminGuard]},
-  { path:'detailscand/:idCandidature',component:DetailscandComponent,canActivate:[ExposantGuard]},
-  { path:'detailscan/:idCandidature',component:DetailscandComponent,canActivate:[AdminGuard]},
-  { path:'mescandidatures',component:MescandidaturesComponent,canActivate:[EtudiantGuard]},
-  { path:'workflow/:idCandidature',component:WorkflowComponent,canActivate:[EtudiantGuard]},
-  { path:'editcand/:idCandidature',component:EditcandComponent,canActivate:[EtudiantGuard]},
-  { path:'editcandi/:idCandidature',component:EditcandComponent,canActivate:[ExposantGuard]},
-  { path:'postuler/:idOffre',component:PostulerComponent,canActivate:[EtudiantGuard]},
-  { path:'access-denied',component:AccessDeniedComponent},
-  { path:'**',component:IntrouvableComponent},
+  { path: '',component:HomeComponent},
+  { path: 'login', component: LoginComponent },
+  { path: 'offres', component: OffreComponent ,canActivate:[EtudiantGuard] },
+  { path: 'offress', component: OffreComponent ,canActivate:[AdminGuard] },
+  { path: 'addoffre/:idSession',component:AddoComponent,canActivate:[ExposantGuard] },
+  { path: 'modifoff/:idOffre', component: ModifComponent,canActivate:[ExposantGuard] },
+  { path: 'detailsoffre/:idOffre',component:DetailsComponent,canActivate:[ExposantGuard] } ,
+  { path: 'detailsoffree/:idOffre',component:DetailsComponent,canActivate:[AdminGuard] } ,
+  { path: 'mesoffres',component:MesoffresComponent,canActivate:[ExposantGuard] },
+  { path: 'reclamations', component: ReclamationComponent,canActivate:[AdminGuard] },
+  { path: 'ajouterrec', component: AjouterComponent,canActivate:[ExposantGuard]},
+  { path: 'ajouterre', component: AjouterComponent,canActivate:[EtudiantGuard]},
+  { path: 'modifRec/:idReclamation', component: ModifierComponent,canActivate:[EtudiantGuard]},
+  { path: 'modifRecl/:idReclamation', component: ModifierComponent,canActivate:[ExposantGuard]},
+  { path: 'mesreclamation', component: MesreclamationComponent,canActivate:[EtudiantGuard]},
+  { path: 'mesreclamatios', component: MesreclamationComponent,canActivate:[ExposantGuard]},
+  { path: 'candidatures', component:CandidatureComponent,canActivate:[AdminGuard]},
+  { path: 'detailscand/:idCandidature',component:DetailscandComponent,canActivate:[ExposantGuard]},
+  { path: 'detailscan/:idCandidature',component:DetailscandComponent,canActivate:[AdminGuard]},
+  { path: 'mescandidatures',component:MescandidaturesComponent,canActivate:[EtudiantGuard]},
+  { path: 'workflow/:idCandidature',component:WorkflowComponent,canActivate:[EtudiantGuard]},
+  { path: 'editcand/:idCandidature',component:EditcandComponent,canActivate:[EtudiantGuard]},
+  { path: 'editcandi/:idCandidature',component:EditcandComponent,canActivate:[ExposantGuard]},
+  { path: 'postuler/:idOffre',component:PostulerComponent,canActivate:[EtudiantGuard]},
+  { path: 'sessiona', component: SessionComponent,canActivate:[AdminGuard]},
+  { path: 'sessionex', component: SessionComponent,canActivate:[ExposantGuard]},
+  { path: 'sessionet', component: SessionComponent,canActivate:[EtudiantGuard]},
+  { path: 'addsess', component: AddsessionComponent,canActivate:[AdminGuard]},
+  { path: 'update-sess/:id', component: UpdatesessionComponent,canActivate:[AdminGuard]},
+  { path: 'calendar', component: CalendarComponent,canActivate:[AdminGuard]},
+  { path: 'calendaret', component: CalendarComponent,canActivate:[EtudiantGuard]},
+  { path: 'calendarex', component: CalendarComponent,canActivate:[ExposantGuard]},
+  { path: 'materiels', component: MaterielComponent,canActivate:[AdminGuard]},
+  { path: 'addmat', component: AddmaterielComponent,canActivate:[AdminGuard]},
+  { path: 'update-mat/:id', component: UpdatematerielComponent,canActivate:[AdminGuard]},
+  { path: 'access-denied',component:AccessDeniedComponent},
+  { path: '**',component:IntrouvableComponent},
 
 ];
 

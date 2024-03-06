@@ -31,9 +31,9 @@ export class OffreComponent implements OnInit{
     this.loadOffres();
     this.roleConnected = this.tokenStorageService.getUser().role
   }
-    goToAdd(){
+   /* goToAdd(){
       this.router.navigate(['addoffre']);
-    }
+    }*/
   edit(idOffre: any) {
     this.router.navigate(['modifoff/' + idOffre]);
   }

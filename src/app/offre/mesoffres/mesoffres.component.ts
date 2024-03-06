@@ -37,7 +37,5 @@ export class MesoffresComponent implements OnInit{
     this.router.navigate(['detailsoffre/' + idOffre]);
   }
 
-  goToAdd() {
-    this.router.navigate(['addoffre']);
-  }
+
 }

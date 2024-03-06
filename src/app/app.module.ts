@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -27,7 +28,13 @@ import { MescandidaturesComponent } from './candidature/mescandidatures/mescandi
 import { WorkflowComponent } from './candidature/workflow/workflow.component';
 import { EditcandComponent } from './candidature/editcand/editcand.component';
 import { PostulerComponent } from './candidature/postuler/postuler.component';
-
+import { CalendarComponent } from './calendar/calendar.component';
+import { MaterielComponent } from './materiel/materiel.component';
+import { AddmaterielComponent } from './materiel/addmateriel/addmateriel.component';
+import { UpdatematerielComponent } from './materiel/updatemateriel/updatemateriel.component';
+import { SessionComponent } from './session/session.component';
+import { AddsessionComponent } from './session/addsession/addsession.component';
+import { UpdatesessionComponent } from './session/updatesession/updatesession.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +60,14 @@ import { PostulerComponent } from './candidature/postuler/postuler.component';
       MescandidaturesComponent,
       WorkflowComponent,
       EditcandComponent,
-      PostulerComponent
+      PostulerComponent,
+    SessionComponent,
+    AddsessionComponent,
+    UpdatesessionComponent,
+    CalendarComponent,
+    MaterielComponent,
+    AddmaterielComponent,
+    UpdatematerielComponent
   ],
     imports: [
         BrowserModule,
@@ -63,7 +77,7 @@ import { PostulerComponent } from './candidature/postuler/postuler.component';
         ReactiveFormsModule,
         NgChartsModule
     ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

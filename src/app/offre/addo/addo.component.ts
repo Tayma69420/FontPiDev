@@ -1,21 +1,30 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Offre } from '../../models/offre.model';
 import { StorageService } from '../../services/storage.service';
 import { OffreService } from '../../services/offre.service';
-import { Router } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+//import Date from "$GLOBAL$";
 
 @Component({
   selector: 'app-addo',
   templateUrl: './addo.component.html',
   styleUrls: ['./addo.component.css'],
 })
-export class AddoComponent {
+export class AddoComponent implements OnInit{
   offreForm: FormGroup;
   submitted = false;
+  id:any;
+
+  ngOnInit(): void {
+    this.aroute.params.subscribe(data =>{
+      this.id=this.aroute.snapshot.params['idSession'];
+    })
+  }
 
   constructor(
       private router: Router,
+      private aroute:ActivatedRoute,
       private offerService: OffreService,
       private tokenStorageService: StorageService,
       private fb: FormBuilder
@@ -38,7 +47,7 @@ export class AddoComponent {
       };
 
       this.offerService
-          .addOffre(this.tokenStorageService.getUser().id, offre, 1)
+          .addOffre(this.tokenStorageService.getUser().id, offre, this.id)
           .subscribe((data) => {
             this.submitted = true;
           });
@@ -49,4 +58,5 @@ export class AddoComponent {
       this.offreForm.markAllAsTouched();
     }
   }
+
 }

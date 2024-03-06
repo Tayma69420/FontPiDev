@@ -1,0 +1,40 @@
+<main class="page-content" style="margin-top: -600px">
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex align-items-center">
+        <h5 class="mb-0">Les Matériels</h5>
+        <input class="form-control" type="text" [(ngModel)]="intitule" (ngModelChange)="Search()" placeholder="Rechercher un matériel par intitulé">
+      </div>
+      <div class="table-responsive mt-3">
+        <table class="table text-center align-middle mb-0">
+          <thead class="table-light">
+          <tr>
+            <th>Intitulé</th>
+            <th>Nombre de pièces</th>
+            <th>Pack</th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let fournisseur of fournisseurs; let i = index">
+            <td>{{fournisseur.intitule}}</td>
+            <td>{{fournisseur.nbPieces}}</td>
+            <td>{{fournisseur.pack}}</td>
+            <td>
+              <div class="edit" data-toggle="modal">
+                <i class="bi bi-pencil" title="Edit" (click)="modify(fournisseur.idMateriel)"></i>
+              </div>
+            </td>
+            <td>
+              <div class="delete" data-toggle="modal" (click)="deleteSession(fournisseur.idMateriel); delete(i);">
+                <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
