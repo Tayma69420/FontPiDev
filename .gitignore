@@ -6,9 +6,6 @@
 /out-tsc
 /bazel-out
 /src/assets
-/src/app/app.component.html
-/src/app/services/reclamation.service.ts
-/src/app/app-routing.module.ts
 # Node
 /node_modules
 npm-debug.log

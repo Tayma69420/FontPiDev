@@ -1,0 +1,18 @@
+<ng-container *ngIf="isLoggedIn==true;else elseBlock">
+
+  <app-navbar></app-navbar>
+
+  <router-outlet>
+
+  </router-outlet>
+
+
+</ng-container>
+<ng-template #elseBlock>
+
+
+
+  <app-login></app-login>
+
+
+</ng-template>
