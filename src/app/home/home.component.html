@@ -5,12 +5,22 @@
     }
 </style>
 <ng-container *ngIf="roleConnected=='ROLE_ADMIN'">
-<main class="page-content container-fluid" style="margin-top: -650px; margin-right: -400px">
+<main class="page-content container-fluid">
     <div class="card-body">
         <script src="path/to/chartjs/dist/chart.umd.js"></script>
         <div class="chart-container">
             <canvas id="MyChart" class="chart-canvas">{{chart}}</canvas>
         </div>
     </div>
+
 </main>
+
 </ng-container>
+<main class="page-content container-fluid" >
+  <div class="card-body">
+    <script src="path/to/chartjs/dist/chart.umd.js"></script>
+    <div class="chart-container" >
+      <canvas id="MyChart1" class="chart-canvas" style="height: 500px;width: 500px">{{chart1}}</canvas>
+    </div>
+  </div>
+</main>

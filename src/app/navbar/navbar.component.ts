@@ -9,6 +9,12 @@ import {StorageService} from "../services/storage.service";
 export class NavbarComponent implements OnInit{
 
   roleConnected:any;
+  isCollapsed = false;
+
+  toggleNavbar() {
+    this.isCollapsed = !this.isCollapsed;
+    console.log('Navbar state toggled: ', this.isCollapsed); // Add this line for debugging
+  }
   ngOnInit(): void {
     this.roleConnected = this.tokenStorageService.getUser().role;
   }

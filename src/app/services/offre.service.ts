@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {Offre} from "../models/offre.model";
+import * as Papa from 'papaparse';
 
 @Injectable({
   providedIn: 'root'
@@ -27,5 +28,20 @@ export class OffreService {
   }
   deleteOffre(idOffre:any):Observable<any>{
     return this.http.delete('http://localhost:8075/api/v1/auth/supprimerOffre/' + idOffre)
+  }
+  public parseCsvFileFromUrl(filePath: string): Observable<any> {
+    return new Observable((observer) => {
+      Papa.parse(filePath, {
+        download: true,
+        header: true,
+        complete: (result) => {
+          observer.next(result.data);
+          observer.complete();
+        },
+        error: (error) => {
+          observer.error(error);
+        }
+      });
+    });
   }
 }

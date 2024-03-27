@@ -75,7 +75,8 @@ import { UpdatesessionComponent } from './session/updatesession/updatesession.co
         AppRoutingModule,
         FormsModule,
         ReactiveFormsModule,
-        NgChartsModule
+        NgChartsModule,
+
     ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

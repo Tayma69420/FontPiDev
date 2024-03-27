@@ -1,14 +1,14 @@
 <ng-container *ngIf="roleConnected=='ROLE_ETUDIANT'">
- <header class="top-header">
+ <header class="top-header" >
    <nav class="navbar navbar-expand-lg justify-content-between">
-     <div class="mobile-toggle-icon fs-3">
+     <div class="mobile-toggle-icon fs-3" (click)="toggleNavbar()">
        <i class="bi bi-list"></i>
      </div>
    </nav>
  </header>
 
 
- <aside class="sidebar-wrapper" data-simplebar="true">
+ <aside class="sidebar-wrapper" data-simplebar="true" [ngClass]="{'collapsed': isCollapsed}">
     <div class="sidebar-header">
       <div>
         <img src="assets/logo.png" class="logo-icon" alt="logo icon">
@@ -165,7 +165,7 @@
 <ng-container *ngIf="roleConnected=='ROLE_EXPOSANT'">
     <header class="top-header">
         <nav class="navbar navbar-expand-lg justify-content-between">
-            <div class="mobile-toggle-icon fs-3">
+            <div class="mobile-toggle-icon fs-3" (click)="toggleNavbar()">
                 <i class="bi bi-list"></i>
             </div>
 
@@ -174,7 +174,7 @@
     </header>
 
 
-    <aside class="sidebar-wrapper" data-simplebar="true">
+    <aside class="sidebar-wrapper" data-simplebar="true" [ngClass]="{'collapsed': isCollapsed}">
         <div class="sidebar-header">
             <div>
                 <img src="assets/logo.png" class="logo-icon" alt="logo icon">
@@ -233,3 +233,4 @@
     </aside>
     <router-outlet></router-outlet>
 </ng-container>
+

@@ -21,6 +21,7 @@ export class OffreComponent implements OnInit{
     this.offreService.getAll().subscribe(
       (data) => {
         this.ToShow = data;
+        //console.log(this.ToShow.qrcode)
         this.filteredOffers = this.ToShow;
       }
 

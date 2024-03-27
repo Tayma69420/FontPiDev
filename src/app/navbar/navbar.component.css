@@ -1,0 +1,42 @@
+.sidebar-wrapper {
+  display: none;
+}
+
+/* Show sidebar when the window width is greater than 768px */
+@media (min-width: 1024px) {
+  .sidebar-wrapper {
+    display: block;
+  }
+}
+
+
+/* Media query for small screens */
+@media (max-width: 1024px) {
+  .top-header.collapsed {
+    display: none;
+  }
+
+  .sidebar-wrapper.collapsed {
+    width: 50px; /* Adjust the width as needed */
+    /* You can apply additional styles here to customize the appearance of the collapsed sidebar */
+  }
+
+  .sidebar-header.collapsed {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px; /* Adjust the padding as needed */
+    /* You can apply additional styles here to customize the appearance of the collapsed sidebar header */
+  }
+
+  /* Hide menu titles in collapsed state */
+  .menu-title {
+    display: none;
+  }
+
+  /* Show mobile toggle icon in collapsed state */
+  .mobile-toggle-icon {
+    display: block;
+  }
+}
+
